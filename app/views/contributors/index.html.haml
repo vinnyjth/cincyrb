@@ -1,0 +1,6 @@
+%section#contributors
+  .container.row
+    .twelve.columns
+      %h1 Top Contributors
+      - @contributors.each do |contributor|
+        %h4= contributor['login']
