@@ -3,4 +3,8 @@
     .twelve.columns
       %h1 Top Contributors
       - @contributors.each do |contributor|
-        %h4= contributor['login']
+        %div
+          =image_tag contributor["avatar_url"], class: "avatar"
+          %h4= contributor['login']
+          =link_to "Github Profile", contributor['html_url']
+          %p= "Contributions: #{contributor['contributions']}"

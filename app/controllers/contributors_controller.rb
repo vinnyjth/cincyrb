@@ -1,5 +1,5 @@
 class ContributorsController < ApplicationController
   def index
-    @contributors = CincyrbGithub.get_contributors
+    @contributors = Github.get_contributors
   end
 end
