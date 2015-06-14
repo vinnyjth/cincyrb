@@ -4,7 +4,9 @@ class Github
   base_uri 'https://api.github.com/'
 
   def self.get_contributors
-    get("/repos/cincinnatirb/cincyrb/contributors", headers: {"User-Agent" =>"Cincyrb"})
+    Rails.cache.fetch("github/contributors", expires_in: 12.hours) do
+      get("/repos/cincinnatirb/cincyrb/contributors", headers: {"User-Agent" =>"Cincyrb"}).parsed_response
+    end
   end
 
   def self.get_top_contributor
