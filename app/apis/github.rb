@@ -12,7 +12,6 @@ class Github
   end
 
   def self.get_all_avatars
-    # self.get_contributors.map(&:avatar_url)
     self.get_contributors.map { |user| user["avatar_url"] }
   end
 
